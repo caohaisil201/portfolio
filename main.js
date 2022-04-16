@@ -1,7 +1,33 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-//global variable
+//global variable, function
+const contentList = [
+    $('#home'),
+    $('#about'),
+]
+
+const headerNavLinks = $$('.header__direction li a');
+
+function elementInViewport(el) {
+    var top = el.offsetTop;
+    var left = el.offsetLeft;
+    var width = el.offsetWidth;
+    var height = el.offsetHeight;
+
+    while (el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+    }
+
+    return (
+        top < window.pageYOffset + window.innerHeight &&
+        left < window.pageXOffset + window.innerWidth &&
+        top + height > window.pageYOffset &&
+        left + width > window.pageXOffset
+    );
+}
 
 //detect device
 const ua = navigator.userAgent;
@@ -66,14 +92,17 @@ function deleteText(txtArr, curChar = 0) {
 
 typeText(txtArr);
 
-//scroll header
+//scroll window
 window.onscroll = () => {
     let top = document.body.scrollTop || document.documentElement.scrollTop;
     if (top >= 120) {
-        // $("header").classList.add('scroll');
-        $("header").classList.add('hide');
+        $("header").classList.add("scroll");
+        // $("header").classList.add('hide');
     } else {
-        // $("header").classList.remove('scroll');
-        $("header").classList.remove('hide');
+        $("header").classList.remove("scroll");
+        // $("header").classList.remove('hide');
     }
+    let index = contentList.findIndex((item)=>elementInViewport(item))
+    $('.header__direction li a.active').classList.remove('active');
+    headerNavLinks[index].classList.add('active');
 };

@@ -26,6 +26,11 @@ li {
 body {
     width: 100%;
     overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+section{
+    scroll-behavior: smooth;
 }
 
 a {
@@ -134,7 +139,14 @@ header .header__direction li a:after {
     transition: transform 0.25s ease-in-out;
 }
 
-header .header__direction li a:hover:after {
+header .header__direction li a:hover,
+header .header__direction li a.active{
+    transition: color 0.2s ease-out;
+    color: var(--primary-color);
+}
+
+header .header__direction li a:hover:after,
+header .header__direction li a.active:after {
     transform: scaleX(1);
 }
 
