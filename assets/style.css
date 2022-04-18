@@ -19,23 +19,31 @@
     font-family: "Poppins", monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 li {
     list-style: none;
 }
 
 body {
     width: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     scroll-behavior: smooth;
 }
 
-section{
+section {
     scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
     color: var(--black);
+}
+
+p {
+    color: #aaa;
 }
 
 img {
@@ -74,6 +82,7 @@ img {
     margin: 0 auto;
     padding: 15px;
     display: flex;
+    position: relative;
 }
 
 header {
@@ -140,7 +149,7 @@ header .header__direction li a:after {
 }
 
 header .header__direction li a:hover,
-header .header__direction li a.active{
+header .header__direction li a.active {
     transition: color 0.2s ease-out;
     color: var(--primary-color);
 }
@@ -235,6 +244,7 @@ header .header__direction li a.active:after {
 }
 
 .banner .banner__content .down-button {
+    display: block;
     width: 0;
     height: 0;
     margin: 0 auto;
@@ -281,7 +291,7 @@ header .header__direction li a.active:after {
 
 .about {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .about .container {
@@ -330,6 +340,10 @@ header .header__direction li a.active:after {
     font-size: 1.2rem;
 }
 
+.about .info .sub-info p {
+    color: var(--black);
+}
+
 .about .info .sub-info .text span {
     color: var(--primary-color);
     font-weight: 500;
@@ -359,4 +373,339 @@ header .header__direction li a.active:after {
     .about .info .sub-info {
         margin-top: 20px;
     }
+}
+
+.resume {
+    position: relative;
+    margin-top: 130px;
+    min-height: 2200px;
+}
+
+.resume .resume__links {
+    position: relative;
+    top: 130px;
+    left: 120px;
+}
+
+.resume__links .list .link {
+    margin: 10px 0;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.resume__links .list .link::before {
+    content: "";
+
+    height: 3px;
+    width: 20px;
+    margin-right: 3px;
+
+    visibility: hidden;
+    display: inline-block;
+    background-color: var(--primary-color);
+    transition: all 0.2s linear;
+}
+
+.resume__links .list .link.active a {
+    transition: color 0.2s linear;
+    color: var(--primary-color);
+}
+
+.resume__links .list .link.active::before {
+    margin-left: 10px;
+    transition: all 0.2s linear;
+    visibility: visible;
+}
+
+.resume .resume__content {
+    position: absolute;
+    left: 300px;
+}
+
+.resume .resume__content .item {
+    display: flex;
+}
+
+.resume__content .content {
+    margin-bottom: 30px;
+}
+
+.resume__content .content .title {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.resume__content .content .item {
+    margin-top: 20px;
+    margin-bottom: 150px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.resume__content .content .item .thumbnail {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+
+    color: var(--white);
+    background-color: var(--primary-color);
+
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.resume__content .content .item .item__detail {
+    margin-left: 10px;
+    flex: 1;
+}
+
+.resume__content .content .item .item__detail h3,
+.resume__content .content .item .item__detail h3 a {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.content .item .item__detail h4 {
+    margin: 10px 0 5px 0;
+}
+
+#skills .item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#skills .item .skill {
+    width: 100%;
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#skills .item .skill .skill__range {
+    width: 90%;
+    height: 10px;
+    display: block;
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+#skills .item .skill .skill__range .skill__value {
+    height: 100%;
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+#skills .item .skill .skill__range .skill__value span {
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: -40px;
+}
+
+/* #skills .item .skill input{
+    width: 100%;
+    -webkit-appearance: none;
+    background: #ddd;
+    height: 10px;
+    border-radius: 2px;
+} */
+
+/* track for range input
+#skills .item .skill input[type="range"]::-webkit-slider-runnable-track,
+#skills .item .skill input[type="range"]::-moz-range-track{
+    height: 0.5rem;
+    background: #000;
+} */
+
+#projects .item .item__detail .image {
+    margin-top: 10px;
+    width: 70%;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 992px) {
+    .resume .resume__content {
+        left: 200px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .resume .resume__links {
+        left: 15px;
+    }
+}
+
+.contact .container{
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+.contact .header {
+    text-align: center;
+}
+
+.contact .header .title{
+    font-size: 3rem;
+}
+
+.contact .contact__methods{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 100px 0 50px 0;
+}
+
+.contact .contact__methods .method{
+    width: 260px;
+    padding: 20px;
+
+    border: 1px solid #ccc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    box-shadow: 0 5px 20px #ddd;
+    transition: all 0.3s ease;
+}
+
+.contact .contact__methods .method:hover{
+    transform: scale(1.1);
+}
+
+.contact .contact__methods .method .icon{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+
+    background-color: var(--primary-color);
+    font-size: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__methods .method  .value{
+    margin-top: 20px;
+    color: #000;
+}
+
+.contact__methods .method .icon i{
+    color: #fff;
+}
+
+.contact .send__mail{
+    display: flex;
+}
+
+.contact .send__mail .image{
+    width: 50%;
+}
+
+.contact .mail__content{
+    width: 50%;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.contact .mail__content input{   
+    height: 40px;
+}
+
+.contact .mail__content input,
+.contact .mail__content textarea{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    font-size: 1.1rem;
+
+    transition: all 0.2s ease;
+    resize: none;
+}
+
+.contact .mail__content input:focus,
+.contact .mail__content textarea:focus{
+    border-color: #000;
+}
+
+footer{
+    width: 100%;
+    height: 700px;
+    background-color: #000;
+}
+
+footer .container{
+    height: 100%;
+    /* justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+footer .container .item{
+    max-width: 220px;
+    margin: 100px 0;
+}
+
+footer .container .item .title{
+    color: #fff;
+}
+
+footer .container .item .content{
+    margin-top: 20px;
+}
+
+footer .list .link{
+    margin: 20px 0;
+}
+
+footer .list .link a{
+    color: #ccc;
+}
+
+footer .item .content .media {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0 10px 5px;
+
+    background-color: #1a1a1a;
+    color: #ddd;
+    font-size: 1.3rem;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .content .method{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+}
+
+footer .content .method .icon{
+    width: 30px;
+    height: 30px;
+    color: #ccc;
+}
+
+footer .content .method .text{
+    display: block;
+    flex: 1;
 }

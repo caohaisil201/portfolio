@@ -2,12 +2,17 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 //global variable, function
-const contentList = [
-    $('#home'),
-    $('#about'),
-]
+const contentList = [$("#home"), $("#about"), $("#resume"), $("#contact")];
 
-const headerNavLinks = $$('.header__direction li a');
+const resumeList = [$("#education"), $("#skills"), $("#projects")];
+
+const headerNavLinks = $$(".header__direction li a");
+
+var projectsBottomPosition = resumeList.reduce((initValue, item) => {
+    return initValue + item.offsetHeight;
+}, $("#resume").offsetTop);
+
+var aboutBottomPosition = $(".about").offsetTop + $(".about").offsetHeight;
 
 function elementInViewport(el) {
     var top = el.offsetTop;
@@ -102,7 +107,30 @@ window.onscroll = () => {
         $("header").classList.remove("scroll");
         // $("header").classList.remove('hide');
     }
-    let index = contentList.findIndex((item)=>elementInViewport(item))
-    $('.header__direction li a.active').classList.remove('active');
-    headerNavLinks[index].classList.add('active');
+    //header link effect
+    let index = contentList.findIndex((item) => elementInViewport(item));
+    $(".header__direction li a.active").classList.remove("active");
+    headerNavLinks[index].classList.add("active");
+    //resume link effect
+    if (top >= aboutBottomPosition && top <= projectsBottomPosition) {
+        $(".resume .resume__links").style.position = "fixed";
+        // $('.resume .resume__links').style.top = '50px';
+    } else {
+        $(".resume .resume__links").style.position = "static";
+        // $('.resume .resume__links').style.top = '';
+        // $('.resume .resume__links').style.bottom = '0';
+    }
+
+    //resume link effect
+    index = resumeList.findIndex((item) => elementInViewport(item));
+    if (index !== -1) {
+        if ($(".resume__links .list .link.active")) {
+            $(".resume__links .list .link.active").classList.remove("active");
+        }
+        $$(".resume__links .list .link")[index].classList.add("active");
+    } else {
+        if ($(".resume__links .list .link.active")) {
+            $(".resume__links .list .link.active").classList.remove("active");
+        }
+    }
 };
