@@ -109,16 +109,23 @@ window.onscroll = () => {
     }
     //header link effect
     let index = contentList.findIndex((item) => elementInViewport(item));
-    $(".header__direction li a.active").classList.remove("active");
-    headerNavLinks[index].classList.add("active");
     //resume link effect
-    if (top >= aboutBottomPosition && top <= projectsBottomPosition) {
-        $(".resume .resume__links").style.position = "fixed";
-        // $('.resume .resume__links').style.top = '50px';
-    } else {
-        $(".resume .resume__links").style.position = "static";
-        // $('.resume .resume__links').style.top = '';
-        // $('.resume .resume__links').style.bottom = '0';
+    if (window.innerWidth >= 768) {
+
+        $(".header__direction li a.active").classList.remove("active");
+        headerNavLinks[index].classList.add("active");
+
+        if (top >= aboutBottomPosition && top <= projectsBottomPosition) {
+            $(".resume .resume__links").style.position = "fixed";
+            // $('.resume .resume__links').style.top = '50px';
+        } else {
+            $(".resume .resume__links").style.position = "static";
+        }
+    }else{
+        if(index!==-1){
+            $(".header__direction li a.active").classList.remove("active");
+            headerNavLinks[index].classList.add("active");
+        }
     }
 
     //resume link effect

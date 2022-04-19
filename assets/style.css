@@ -292,6 +292,7 @@ header .header__direction li a.active:after {
 .about {
     width: 100%;
     min-height: 100vh;
+    margin-bottom: 100px;
 }
 
 .about .container {
@@ -353,31 +354,8 @@ header .header__direction li a.active:after {
     margin-top: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .about .container {
-        flex-direction: column;
-    }
-
-    .about .container .image,
-    .about .container .info {
-        width: 100%;
-    }
-
-    .about .container .info {
-        margin-top: 40px;
-        padding: 0;
-    }
-
-    .about .info .quote,
-    .about .info .detail,
-    .about .info .sub-info {
-        margin-top: 20px;
-    }
-}
-
 .resume {
     position: relative;
-    margin-top: 130px;
     min-height: 2200px;
 }
 
@@ -544,7 +522,7 @@ header .header__direction li a.active:after {
     }
 }
 
-.contact .container{
+.contact .container {
     flex-direction: column;
     padding-bottom: 0;
 }
@@ -553,17 +531,17 @@ header .header__direction li a.active:after {
     text-align: center;
 }
 
-.contact .header .title{
+.contact .header .title {
     font-size: 3rem;
 }
 
-.contact .contact__methods{
+.contact .contact__methods {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 100px 0 50px 0;
 }
 
-.contact .contact__methods .method{
+.contact .contact__methods .method {
     width: 260px;
     padding: 20px;
 
@@ -578,11 +556,11 @@ header .header__direction li a.active:after {
     transition: all 0.3s ease;
 }
 
-.contact .contact__methods .method:hover{
+.contact .contact__methods .method:hover {
     transform: scale(1.1);
 }
 
-.contact .contact__methods .method .icon{
+.contact .contact__methods .method .icon {
     width: 100px;
     height: 100px;
     margin-bottom: 15px;
@@ -596,35 +574,35 @@ header .header__direction li a.active:after {
     justify-content: center;
 }
 
-.contact__methods .method  .value{
+.contact__methods .method .value {
     margin-top: 20px;
     color: #000;
 }
 
-.contact__methods .method .icon i{
+.contact__methods .method .icon i {
     color: #fff;
 }
 
-.contact .send__mail{
+.contact .send__mail {
     display: flex;
 }
 
-.contact .send__mail .image{
+.contact .send__mail .image {
     width: 50%;
 }
 
-.contact .mail__content{
+.contact .mail__content {
     width: 50%;
     padding: 40px;
     background-color: #f8f9fa;
 }
 
-.contact .mail__content input{   
+.contact .mail__content input {
     height: 40px;
 }
 
 .contact .mail__content input,
-.contact .mail__content textarea{
+.contact .mail__content textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
@@ -640,41 +618,40 @@ header .header__direction li a.active:after {
 }
 
 .contact .mail__content input:focus,
-.contact .mail__content textarea:focus{
+.contact .mail__content textarea:focus {
     border-color: #000;
 }
 
-footer{
+footer {
     width: 100%;
-    height: 700px;
+    /* height: 550px; */
     background-color: #000;
 }
 
-footer .container{
+footer .container {
     height: 100%;
-    /* justify-content: space-between; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-footer .container .item{
+footer .container .item {
     max-width: 220px;
     margin: 100px 0;
 }
 
-footer .container .item .title{
+footer .container .item .title {
     color: #fff;
 }
 
-footer .container .item .content{
+footer .container .item .content {
     margin-top: 20px;
 }
 
-footer .list .link{
+footer .list .link {
     margin: 20px 0;
 }
 
-footer .list .link a{
+footer .list .link a {
     color: #ccc;
 }
 
@@ -693,19 +670,127 @@ footer .item .content .media {
     justify-content: center;
 }
 
-footer .content .method{
+footer .content .method {
     display: flex;
     width: 100%;
     margin: 10px 0;
 }
 
-footer .content .method .icon{
+footer .content .method .icon {
     width: 30px;
     height: 30px;
     color: #ccc;
 }
 
-footer .content .method .text{
+footer .content .method .text {
     display: block;
     flex: 1;
+}
+
+@media screen and (max-width: 1199px) {
+    .resume{
+        min-height: 2000px;
+    }
+    
+    .resume .resume__content .content .item{
+        margin-bottom: 80px;
+    }
+    #projects .item .item__detail .image{
+        width: 90%;
+    }
+
+    .contact .contact__methods {
+        grid-template-columns: 1fr 1fr;
+        margin: 30px auto;
+    }
+
+    .contact .contact__methods .method {
+        width: 280px;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .about{
+        margin-bottom: 70px;
+    }
+
+    .about .container,
+    .contact .container .send__mail{
+        flex-direction: column;
+    }
+
+    .about .container .image,
+    .about .container .info,
+    .contact .container .send__mail .image,
+    .contact .container .send__mail .mail__content {
+        width: 100%;
+    }
+
+    .about .container .info {
+        margin-top: 40px;
+        padding: 0;
+    }
+
+    .about .info .quote,
+    .about .info .detail,
+    .about .info .sub-info {
+        margin-top: 20px;
+    }
+
+    .resume .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .resume .resume__links .list{
+        display: flex;
+        margin-bottom: 30px;
+        position: relative !important;
+    }
+
+    .resume .resume__content{
+        position: relative;
+        left: 0;
+    }
+
+    footer .container{
+        grid-template-columns: 1fr;
+    }
+
+    footer .container .item{
+        max-width: 90%;
+        margin: 30px 0;
+    }
+
+    footer .item .list{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .item .content.media{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .contact .contact__methods {
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+    }
+
+    .contact .contact__methods .method{
+        width: 350px;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 575px){
+    #skills .item{
+        grid-template-columns: 1fr;
+    }
 }
