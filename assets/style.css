@@ -29,7 +29,6 @@ li {
 
 body {
     width: 100%;
-    /* overflow-y: scroll; */
     scroll-behavior: smooth;
 }
 
@@ -49,6 +48,7 @@ p {
 img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
 }
@@ -142,16 +142,19 @@ header .header__direction li {
 
 header .header__direction li a:after {
     content: "";
+
     display: block;
+
     border-bottom: 2px solid var(--primary-color);
+
     transform: scaleX(0);
     transition: transform 0.25s ease-in-out;
 }
 
 header .header__direction li a:hover,
 header .header__direction li a.active {
-    transition: color 0.2s ease-out;
     color: var(--primary-color);
+    transition: color 0.2s ease-out;
 }
 
 header .header__direction li a:hover:after,
@@ -159,50 +162,7 @@ header .header__direction li a.active:after {
     transform: scaleX(1);
 }
 
-@media screen and (max-width: 992px) {
-    header {
-        max-height: 60px;
-        transition: max-height 0.7s ease-in-out;
-        overflow: hidden;
-    }
 
-    header.full {
-        max-height: 1000px;
-        transition: max-height 0.7s ease-in-out;
-    }
-
-    header.top {
-        background-color: var(--black);
-    }
-
-    header.top.scroll {
-        background-color: var(--white);
-    }
-
-    header.top a {
-        color: var(--white);
-    }
-
-    header .menu {
-        cursor: pointer;
-        color: #ccc;
-    }
-
-    header.scroll a {
-        color: var(--black);
-    }
-
-    header .container {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    header .header__direction {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-}
 
 .banner {
     width: 100%;
@@ -216,6 +176,7 @@ header .header__direction li a.active:after {
 .banner .banner__left {
     width: 50%;
     height: 100%;
+
     background-color: var(--home-background);
 }
 
@@ -268,6 +229,7 @@ header .header__direction li a.active:after {
 
     border: 50px solid transparent;
     border-top-color: var(--home-background);
+
     z-index: -1;
 }
 
@@ -433,10 +395,11 @@ header .header__direction li a.active:after {
 
     color: var(--white);
     background-color: var(--primary-color);
-
-    border-radius: 50%;
+    
     text-align: center;
     line-height: 50px;
+
+    border-radius: 50%;
 }
 
 .resume__content .content .item .item__detail {
@@ -469,21 +432,26 @@ header .header__direction li a.active:after {
 }
 
 #skills .item .skill .skill__range {
+    display: block;
     width: 90%;
     height: 10px;
-    display: block;
-    border-radius: 3px;
+
     background-color: #ddd;
+
+    border-radius: 3px;
 }
 
 #skills .item .skill .skill__range .skill__value {
     height: 100%;
+
     background-color: var(--primary-color);
+
     position: relative;
 }
 
 #skills .item .skill .skill__range .skill__value span {
     display: block;
+
     position: absolute;
     right: -20px;
     top: -40px;
@@ -507,19 +475,8 @@ header .header__direction li a.active:after {
 #projects .item .item__detail .image {
     margin-top: 10px;
     width: 70%;
+
     border-radius: 3px;
-}
-
-@media screen and (max-width: 992px) {
-    .resume .resume__content {
-        left: 200px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .resume .resume__links {
-        left: 15px;
-    }
 }
 
 .contact .container {
@@ -594,6 +551,7 @@ header .header__direction li a.active:after {
 .contact .mail__content {
     width: 50%;
     padding: 40px;
+
     background-color: #f8f9fa;
 }
 
@@ -624,7 +582,6 @@ header .header__direction li a.active:after {
 
 footer {
     width: 100%;
-    /* height: 550px; */
     background-color: #000;
 }
 
@@ -663,6 +620,7 @@ footer .item .content .media {
     background-color: #1a1a1a;
     color: #ddd;
     font-size: 1.3rem;
+    
     border-radius: 50%;
 
     display: flex;
@@ -691,6 +649,10 @@ footer .content .method .text {
     .resume{
         min-height: 2000px;
     }
+
+    .resume .resume__links {
+        left: 15px;
+    }
     
     .resume .resume__content .content .item{
         margin-bottom: 80px;
@@ -707,6 +669,55 @@ footer .content .method .text {
     .contact .contact__methods .method {
         width: 280px;
         margin: 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    header {
+        max-height: 60px;
+        transition: max-height 0.7s ease-in-out;
+        overflow: hidden;
+    }
+
+    header.full {
+        max-height: 1000px;
+        transition: max-height 0.7s ease-in-out;
+    }
+
+    header.top {
+        background-color: var(--black);
+    }
+
+    header.top.scroll {
+        background-color: var(--white);
+    }
+
+    header.top a {
+        color: var(--white);
+    }
+
+    header .menu {
+        cursor: pointer;
+        color: #ccc;
+    }
+
+    header.scroll a {
+        color: var(--black);
+    }
+
+    header .container {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    header .header__direction {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .resume .resume__content {
+        left: 200px;
     }
 }
 
@@ -784,13 +795,22 @@ footer .content .method .text {
     .contact .contact__methods .method{
         width: 350px;
     }
-
-    
-
 }
 
 @media screen and (max-width: 575px){
     #skills .item{
         grid-template-columns: 1fr;
     }
+}
+
+/*reveal scroll effect*/
+.reveal {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.7s ease;
+}
+
+.reveal.reveal-scroll{
+    transform: translateY(0px);
+    opacity: 1;
 }

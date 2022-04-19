@@ -8,11 +8,14 @@ const resumeList = [$("#education"), $("#skills"), $("#projects")];
 
 const headerNavLinks = $$(".header__direction li a");
 
+const revealList = $$('.reveal');
+
 var projectsBottomPosition = resumeList.reduce((initValue, item) => {
     return initValue + item.offsetHeight;
 }, $("#resume").offsetTop);
 
 var aboutBottomPosition = $(".about").offsetTop + $(".about").offsetHeight;
+
 
 function elementInViewport(el) {
     var top = el.offsetTop;
@@ -102,11 +105,18 @@ window.onscroll = () => {
     let top = document.body.scrollTop || document.documentElement.scrollTop;
     if (top >= 120) {
         $("header").classList.add("scroll");
-        // $("header").classList.add('hide');
     } else {
         $("header").classList.remove("scroll");
-        // $("header").classList.remove('hide');
     }
+
+    //reveal scroll effect
+    revealList.forEach((item)=>{
+        if(elementInViewport(item)){
+            item.classList.add('reveal-scroll');
+        }else{
+            item.classList.remove('reveal-scroll');
+        }
+    })
     //header link effect
     let index = contentList.findIndex((item) => elementInViewport(item));
     //resume link effect
